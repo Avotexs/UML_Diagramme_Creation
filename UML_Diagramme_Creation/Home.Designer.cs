@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.guna2ContextMenuStrip2 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
@@ -46,10 +47,18 @@
             this.Generatebtn = new Guna.UI2.WinForms.Guna2Button();
             this.Associationbtn = new Guna.UI2.WinForms.Guna2Button();
             this.Classbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.classToolbox = new System.Windows.Forms.Panel();
+            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnAddClass = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ContextMenuStrip2.SuspendLayout();
             this.guna2ContextMenuStrip3.SuspendLayout();
             this.guna2ContextMenuStrip4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.classToolbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ContextMenuStrip1
@@ -168,9 +177,9 @@
             this.panel1.Controls.Add(this.Classbtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(898, 32);
+            this.panel1.Size = new System.Drawing.Size(883, 31);
             this.panel1.TabIndex = 4;
             // 
             // Exitbtn
@@ -183,8 +192,8 @@
             this.Exitbtn.FillColor = System.Drawing.Color.Red;
             this.Exitbtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exitbtn.ForeColor = System.Drawing.Color.White;
-            this.Exitbtn.Location = new System.Drawing.Point(867, 1);
-            this.Exitbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Exitbtn.Location = new System.Drawing.Point(852, 1);
+            this.Exitbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.Exitbtn.Size = new System.Drawing.Size(31, 28);
@@ -207,7 +216,7 @@
             this.Exportbtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exportbtn.ForeColor = System.Drawing.Color.Black;
             this.Exportbtn.Location = new System.Drawing.Point(370, -1);
-            this.Exportbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Exportbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Exportbtn.Name = "Exportbtn";
             this.Exportbtn.Size = new System.Drawing.Size(92, 33);
             this.Exportbtn.TabIndex = 8;
@@ -229,7 +238,7 @@
             this.Generatebtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Generatebtn.ForeColor = System.Drawing.Color.Black;
             this.Generatebtn.Location = new System.Drawing.Point(252, -3);
-            this.Generatebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Generatebtn.Margin = new System.Windows.Forms.Padding(2);
             this.Generatebtn.Name = "Generatebtn";
             this.Generatebtn.Size = new System.Drawing.Size(114, 35);
             this.Generatebtn.TabIndex = 7;
@@ -251,7 +260,7 @@
             this.Associationbtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Associationbtn.ForeColor = System.Drawing.Color.Black;
             this.Associationbtn.Location = new System.Drawing.Point(122, 0);
-            this.Associationbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Associationbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Associationbtn.Name = "Associationbtn";
             this.Associationbtn.Size = new System.Drawing.Size(126, 31);
             this.Associationbtn.TabIndex = 6;
@@ -273,30 +282,130 @@
             this.Classbtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Classbtn.ForeColor = System.Drawing.Color.Black;
             this.Classbtn.Location = new System.Drawing.Point(0, 0);
-            this.Classbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Classbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Classbtn.Name = "Classbtn";
             this.Classbtn.Size = new System.Drawing.Size(118, 31);
             this.Classbtn.TabIndex = 5;
             this.Classbtn.Text = "Class";
             this.Classbtn.Click += new System.EventHandler(this.Classbtn_Click);
             // 
+            // classToolbox
+            // 
+            this.classToolbox.Controls.Add(this.guna2ImageButton5);
+            this.classToolbox.Controls.Add(this.guna2ImageButton6);
+            this.classToolbox.Controls.Add(this.guna2ImageButton3);
+            this.classToolbox.Controls.Add(this.guna2ImageButton4);
+            this.classToolbox.Controls.Add(this.guna2ImageButton2);
+            this.classToolbox.Controls.Add(this.btnAddClass);
+            this.classToolbox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.classToolbox.Location = new System.Drawing.Point(817, 31);
+            this.classToolbox.Name = "classToolbox";
+            this.classToolbox.Size = new System.Drawing.Size(66, 408);
+            this.classToolbox.TabIndex = 5;
+            // 
+            // guna2ImageButton5
+            // 
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton5.Image")));
+            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton5.ImageRotate = 0F;
+            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(33, 57);
+            this.guna2ImageButton5.Name = "guna2ImageButton5";
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(28, 21);
+            this.guna2ImageButton5.TabIndex = 11;
+            // 
+            // guna2ImageButton6
+            // 
+            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton6.Image")));
+            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton6.ImageRotate = 0F;
+            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(3, 57);
+            this.guna2ImageButton6.Name = "guna2ImageButton6";
+            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.Size = new System.Drawing.Size(28, 21);
+            this.guna2ImageButton6.TabIndex = 10;
+            // 
+            // guna2ImageButton3
+            // 
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton3.Image")));
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(33, 30);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(28, 21);
+            this.guna2ImageButton3.TabIndex = 9;
+            // 
+            // guna2ImageButton4
+            // 
+            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton4.Image")));
+            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton4.ImageRotate = 0F;
+            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(3, 30);
+            this.guna2ImageButton4.Name = "guna2ImageButton4";
+            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Size = new System.Drawing.Size(28, 21);
+            this.guna2ImageButton4.TabIndex = 8;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(33, 3);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(28, 21);
+            this.guna2ImageButton2.TabIndex = 7;
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAddClass.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAddClass.Image = ((System.Drawing.Image)(resources.GetObject("btnAddClass.Image")));
+            this.btnAddClass.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnAddClass.ImageRotate = 0F;
+            this.btnAddClass.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddClass.Location = new System.Drawing.Point(3, 3);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAddClass.Size = new System.Drawing.Size(28, 21);
+            this.btnAddClass.TabIndex = 6;
+            this.btnAddClass.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 379);
+            this.ClientSize = new System.Drawing.Size(883, 439);
+            this.Controls.Add(this.classToolbox);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "\"";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.guna2ContextMenuStrip2.ResumeLayout(false);
             this.guna2ContextMenuStrip3.ResumeLayout(false);
             this.guna2ContextMenuStrip4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.classToolbox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -320,6 +429,13 @@
         private Guna.UI2.WinForms.Guna2Button Associationbtn;
         private Guna.UI2.WinForms.Guna2Button Exportbtn;
         private Guna.UI2.WinForms.Guna2CircleButton Exitbtn;
+        private System.Windows.Forms.Panel classToolbox;
+        private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
     }
 }
 

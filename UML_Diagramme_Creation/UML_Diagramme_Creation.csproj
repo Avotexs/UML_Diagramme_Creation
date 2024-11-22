@@ -52,18 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClass.Designer.cs">
+      <DependentUpon>AddClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Association.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Association.Designer.cs">
       <DependentUpon>Association.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Class.Designer.cs">
-      <DependentUpon>Class.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Class.cs" />
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,11 +85,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddClass.resx">
+      <DependentUpon>AddClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Association.resx">
       <DependentUpon>Association.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Class.resx">
-      <DependentUpon>Class.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Export.resx">
       <DependentUpon>Export.cs</DependentUpon>

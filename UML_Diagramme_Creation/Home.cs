@@ -29,8 +29,8 @@ namespace UML_Diagramme_Creation
 
         private void Classbtn_Click(object sender, EventArgs e)
         {
-            Class clss=new Class();
-            clss.Show();
+            //Class clss=new Class();
+           // clss.Show();
         }
 
         private void Associationbtn_Click(object sender, EventArgs e)
@@ -50,6 +50,11 @@ namespace UML_Diagramme_Creation
 
             Export export=new Export(); 
             export.Show();
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
