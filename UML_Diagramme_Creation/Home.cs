@@ -21,7 +21,7 @@ namespace UML_Diagramme_Creation
 
         private void Home_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Exitbtn_Click(object sender, EventArgs e)
@@ -64,6 +64,18 @@ namespace UML_Diagramme_Creation
             
             AddClass addC = new AddClass(Classes);
             addC.Show();
+            addC.retourn();
+           
+        }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+            foreach (Class item in Classes)
+            {
+                MessageBox.Show(item.ClassName);
+            }
         }
     }
 }
+
+

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,8 +71,8 @@ namespace UML_Diagramme_Creation
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(guna2TextBox2.Text) && !(guna2ComboBox1.SelectedItem == null ||
-    string.IsNullOrEmpty(guna2ComboBox1.SelectedItem.ToString())) && !(guna2ComboBox2.SelectedItem == null ||
-    string.IsNullOrEmpty(guna2ComboBox2.SelectedItem.ToString())))
+            string.IsNullOrEmpty(guna2ComboBox1.SelectedItem.ToString())) && !(guna2ComboBox2.SelectedItem == null ||
+            string.IsNullOrEmpty(guna2ComboBox2.SelectedItem.ToString())))
             {
                 ListViewItem item = new ListViewItem(guna2TextBox2.Text);
                 item.SubItems.Add(guna2ComboBox1.SelectedItem.ToString());
@@ -126,11 +127,16 @@ namespace UML_Diagramme_Creation
                 //classes
                 //int sectionHeight = c.Position.Height / 3;
                 classes.Add(c);
-                MessageBox.Show(c.ClassName);
+                // MessageBox.Show(c.ClassName);
+               
 
 
-                
+
+
             }
+            
         }
+        public List<Class> retourn()
+        { return classes; }
     }
 }
