@@ -12,9 +12,11 @@ namespace UML_Diagramme_Creation
 {
     public partial class Home : Form
     {
+        public List<Class> Classes{ get; set; }
         public Home()
         {
             InitializeComponent();
+            Classes = new List<Class>();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -54,7 +56,14 @@ namespace UML_Diagramme_Creation
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            
+            AddClass addC = new AddClass(Classes);
+            addC.Show();
         }
     }
 }
