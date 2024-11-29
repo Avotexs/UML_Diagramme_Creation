@@ -52,7 +52,6 @@
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ContextMenuStrip2.SuspendLayout();
             this.guna2ContextMenuStrip3.SuspendLayout();
@@ -295,7 +294,6 @@
             this.classToolbox.Controls.Add(this.guna2ImageButton6);
             this.classToolbox.Controls.Add(this.guna2ImageButton3);
             this.classToolbox.Controls.Add(this.guna2ImageButton4);
-            this.classToolbox.Controls.Add(this.guna2ImageButton2);
             this.classToolbox.Controls.Add(this.btnAddClass);
             this.classToolbox.Dock = System.Windows.Forms.DockStyle.Right;
             this.classToolbox.Location = new System.Drawing.Point(817, 31);
@@ -359,20 +357,6 @@
             this.guna2ImageButton4.Size = new System.Drawing.Size(28, 21);
             this.guna2ImageButton4.TabIndex = 8;
             // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(33, 3);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(28, 21);
-            this.guna2ImageButton2.TabIndex = 7;
-            // 
             // btnAddClass
             // 
             this.btnAddClass.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -381,12 +365,12 @@
             this.btnAddClass.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnAddClass.ImageRotate = 0F;
             this.btnAddClass.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddClass.Location = new System.Drawing.Point(3, 3);
+            this.btnAddClass.Location = new System.Drawing.Point(3, 5);
             this.btnAddClass.Name = "btnAddClass";
             this.btnAddClass.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnAddClass.Size = new System.Drawing.Size(28, 21);
-            this.btnAddClass.TabIndex = 6;
-            this.btnAddClass.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.btnAddClass.TabIndex = 7;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
             // Home
             // 
@@ -430,12 +414,11 @@
         private Guna.UI2.WinForms.Guna2Button Exportbtn;
         private Guna.UI2.WinForms.Guna2CircleButton Exitbtn;
         private System.Windows.Forms.Panel classToolbox;
-        private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;
     }
 }
 

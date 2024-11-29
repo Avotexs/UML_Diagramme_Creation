@@ -64,6 +64,7 @@
     <Compile Include="Association.Designer.cs">
       <DependentUpon>Association.cs</DependentUpon>
     </Compile>
+    <Compile Include="Attribut.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
@@ -83,6 +84,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddClass.resx">
