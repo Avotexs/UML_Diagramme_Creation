@@ -53,6 +53,7 @@
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.panelHome = new System.Windows.Forms.Panel();
             this.guna2ContextMenuStrip2.SuspendLayout();
             this.guna2ContextMenuStrip3.SuspendLayout();
             this.guna2ContextMenuStrip4.SuspendLayout();
@@ -379,11 +380,21 @@
             this.btnAddClass.TabIndex = 7;
             this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
+            // panelHome
+            // 
+            this.panelHome.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHome.Location = new System.Drawing.Point(0, 48);
+            this.panelHome.Name = "panelHome";
+            this.panelHome.Size = new System.Drawing.Size(1361, 628);
+            this.panelHome.TabIndex = 6;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 540);
+            this.Controls.Add(this.panelHome);
             this.Controls.Add(this.classToolbox);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -427,6 +438,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;
+        private System.Windows.Forms.Panel panelHome;
     }
 }
 

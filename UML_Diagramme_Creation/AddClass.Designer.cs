@@ -368,7 +368,7 @@
             this.SaveAddClassBtn.FillColor = System.Drawing.Color.Teal;
             this.SaveAddClassBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SaveAddClassBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveAddClassBtn.Location = new System.Drawing.Point(437, 410);
+            this.SaveAddClassBtn.Location = new System.Drawing.Point(441, 411);
             this.SaveAddClassBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SaveAddClassBtn.Name = "SaveAddClassBtn";
             this.SaveAddClassBtn.Size = new System.Drawing.Size(187, 36);
