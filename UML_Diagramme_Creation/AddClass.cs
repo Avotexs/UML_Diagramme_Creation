@@ -123,9 +123,9 @@ namespace UML_Diagramme_Creation
                     attributes.Add(new Attribut(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
                 }
                 c.Attributes = attributes;
-                foreach (ListViewItem item in listView2.Items)
+                foreach (ListViewItem itemm in listView2.Items)
                 {
-                    methodes.Add(new Methode(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
+                    methodes.Add(new Methode(itemm.SubItems[0].Text, itemm.SubItems[1].Text, itemm.SubItems[2].Text));
                 }
                 c.Methodes = methodes;
 

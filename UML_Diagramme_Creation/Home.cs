@@ -16,6 +16,8 @@ namespace UML_Diagramme_Creation
         public List<Class> Classes{ get; set; }
         private Class selectedClass=null;
         private Point mouseDownLocation;
+        private bool isDragging = false; // Indique si le rectangle est en cours de déplacement
+
         public Home()
         {
             InitializeComponent();
@@ -25,13 +27,13 @@ namespace UML_Diagramme_Creation
            
             panelHome.MouseDown += home_MouseDown; // Détecte le clic initial
             panelHome.MouseMove += home_MouseMove; // Gère le déplacement
-            //this.MouseUp += Form1_MouseUp; // Arrête le déplacement
+            panelHome.MouseUp += home_MouseUp; // Arrête le déplacement
         }
 
         // Dessiner tous les éléments dans la zone de dessin
         private void Redraw()
         {
-            this.Invalidate();  // Redessine le formulaire
+            panelHome.Invalidate();  // Redessine le formulaire
         }
         private void home_MouseDown(object sender, MouseEventArgs e)
         {
@@ -39,16 +41,17 @@ namespace UML_Diagramme_Creation
             {
                 if (classElement.Position.Contains(e.Location))
                 {
+                    isDragging = true; // Active le mode déplacement
                     selectedClass = classElement;
-                    mouseDownLocation = e.Location;
-                 
+                    mouseDownLocation = e.Location; // Enregistre la position initiale du clic
+
                     break;
                 }
             }
         }
         private void home_MouseMove(object sender, MouseEventArgs e)
         {
-            if (selectedClass != null)
+            if (selectedClass != null && isDragging == true)
             {
                 // Calculer le déplacement
                 int dx = e.X - mouseDownLocation.X;
@@ -68,6 +71,11 @@ namespace UML_Diagramme_Creation
                 // Redessiner
                 Redraw();
             }
+        }
+        private void home_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Désactive le mode déplacement
+            isDragging = false;
         }
 
         private void Home_Load(object sender, EventArgs e)
