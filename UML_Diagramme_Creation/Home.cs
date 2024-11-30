@@ -7,17 +7,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Guna.UI2.Native.WinApi;
 
 namespace UML_Diagramme_Creation
 {
     public partial class Home : Form
     {
         public List<Class> Classes{ get; set; }
+        private Class selectedClass=null;
+        private Point mouseDownLocation;
+        private bool isDragging = false; // Indique si le rectangle est en cours de déplacement
+
         public Home()
         {
             InitializeComponent();
             Classes = new List<Class>();
+
             panelHome.Paint += DrawingPanel_Paint;
+           
+            panelHome.MouseDown += home_MouseDown; // Détecte le clic initial
+            panelHome.MouseMove += home_MouseMove; // Gère le déplacement
+            panelHome.MouseUp += home_MouseUp; // Arrête le déplacement
+        }
+
+        // Dessiner tous les éléments dans la zone de dessin
+        private void Redraw()
+        {
+            panelHome.Invalidate();  // Redessine le formulaire
+        }
+        private void home_MouseDown(object sender, MouseEventArgs e)
+        {
+            foreach (var classElement in Classes)
+            {
+                if (classElement.Position.Contains(e.Location))
+                {
+                    isDragging = true; // Active le mode déplacement
+                    selectedClass = classElement;
+                    mouseDownLocation = e.Location; // Enregistre la position initiale du clic
+
+                    break;
+                }
+            }
+        }
+        private void home_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (selectedClass != null && isDragging == true)
+            {
+                // Calculer le déplacement
+                int dx = e.X - mouseDownLocation.X;
+                int dy = e.Y - mouseDownLocation.Y;
+
+                // Mettre à jour la position de la classe
+                selectedClass.Position = new Rectangle(
+                    selectedClass.Position.X + dx,
+                    selectedClass.Position.Y + dy,
+                    selectedClass.Position.Width,
+                    selectedClass.Position.Height
+                );
+
+                // Mettre à jour la position de la souris
+                mouseDownLocation = e.Location;
+
+                // Redessiner
+                Redraw();
+            }
+        }
+        private void home_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Désactive le mode déplacement
+            isDragging = false;
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -145,6 +203,7 @@ namespace UML_Diagramme_Creation
 
             foreach (var umlClass in Classes)
             {
+
                 // Calculate heights dynamically
                 int nameHeight = 30; // Fixed height for the class name section
                 int attributeHeight = Math.Max(umlClass.Attributes.Count * 20, 30); // 20px per attribute, minimum 30px

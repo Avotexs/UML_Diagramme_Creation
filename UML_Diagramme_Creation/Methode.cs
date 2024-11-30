@@ -12,7 +12,7 @@ namespace UML_Diagramme_Creation
         private string Charater {  get; set; }
         private string Typ { get; set; }
 
-        public Methode(string visibilite, string charater,string typ)
+        public Methode(string charater, string visibilite, string typ)
         {
             Visibilite = visibilite;
             Charater = charater;
@@ -20,7 +20,11 @@ namespace UML_Diagramme_Creation
         }
         public string retournMethod()
         {
-            return this.Visibilite + " " + this.Charater + " : " + this.Typ;
+            if (Visibilite == "Public") { Visibilite = "+"; }
+            else if (Visibilite == "Privé") { Visibilite = "-"; }
+            else { Visibilite = "#"; }
+            
+            return this.Visibilite + " " + this.Charater + "() : " + this.Typ;
         }
 
     }
