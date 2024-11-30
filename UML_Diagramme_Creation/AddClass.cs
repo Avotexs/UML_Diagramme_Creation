@@ -16,6 +16,7 @@ namespace UML_Diagramme_Creation
     public partial class AddClass : Form
     {
         public List<Class> classes;
+        Class c = new Class();
         public List<Methode> methodes=new List<Methode>();
         public List<Attribut> attributes = new List<Attribut>();
 
@@ -94,6 +95,9 @@ namespace UML_Diagramme_Creation
 
         private void SaveAddClassBtn_Click(object sender, EventArgs e)
         {
+            Home homeForm = (Home)this.Owner; // Assurez-vous que AddClass a été lancé avec ShowDialog ou Show
+            homeForm.UpdateClasses(classes);
+            this.Close();
 
             if (string.IsNullOrEmpty(guna2TextBox1.Text))
             {
@@ -111,24 +115,24 @@ namespace UML_Diagramme_Creation
                 Rectangle rect = new Rectangle(e2.X - 50, e2.Y - 50, 120, 120);
 
                 // cretion d'obet classe 
-                Class c = new Class();
+               
                 c.ClassName = guna2TextBox1.Text;
                 c.Position = rect;
                 foreach (ListViewItem item in listView1.Items)
                 {
                     attributes.Add(new Attribut(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
                 }
-
+                c.Attributes = attributes;
                 foreach (ListViewItem item in listView2.Items)
                 {
                     methodes.Add(new Methode(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
                 }
+                c.Methodes = methodes;
 
-                //classes
-                //int sectionHeight = c.Position.Height / 3;
+         
                 classes.Add(c);
-                // MessageBox.Show(c.ClassName);
-               
+
+                this.Close();
 
 
 
@@ -136,7 +140,7 @@ namespace UML_Diagramme_Creation
             }
             
         }
-        public List<Class> retourn()
-        { return classes; }
+        public Class retourn()
+        { return c; }
     }
 }

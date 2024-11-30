@@ -18,6 +18,10 @@ namespace UML_Diagramme_Creation
             Charater = charater;
             Typ = typ;
         }
+        public string retournMethod()
+        {
+            return this.Visibilite + " " + this.Charater + " : " + this.Typ;
+        }
 
     }
 }
