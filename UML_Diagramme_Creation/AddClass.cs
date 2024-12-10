@@ -15,6 +15,7 @@ namespace UML_Diagramme_Creation
 {
     public partial class AddClass : Form
     {
+
         public List<Class> classes;
         Class c = new Class();
         public List<Methode> methodes=new List<Methode>();
@@ -97,6 +98,7 @@ namespace UML_Diagramme_Creation
         {
             Home homeForm = (Home)this.Owner; // Assurez-vous que AddClass a été lancé avec ShowDialog ou Show
             homeForm.UpdateClasses(classes);
+           
             this.Close();
 
             if (string.IsNullOrEmpty(guna2TextBox1.Text))

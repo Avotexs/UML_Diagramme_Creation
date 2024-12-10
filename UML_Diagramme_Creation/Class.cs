@@ -12,6 +12,7 @@ namespace UML_Diagramme_Creation
         public string ClassName { get; set; }
         public List<Attribut> Attributes { get; set; }
         public List<Methode> Methodes { get; set; }
+        public List<Relation> Relations { get; set; } = new List<Relation>();
         public Rectangle Position { get; set; }
         public Class() { }  
         public Class(string className, Rectangle position)

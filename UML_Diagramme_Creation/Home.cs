@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheArtOfDevHtmlRenderer.Adapters;
 using static Guna.UI2.Native.WinApi;
 
 namespace UML_Diagramme_Creation
 {
     public partial class Home : Form
     {
+        public List<Relation> Relations { get; set; } = new List<Relation>();
         public List<Class> Classes{ get; set; }
         private Class selectedClass=null;
         private Point mouseDownLocation;
@@ -199,6 +201,7 @@ namespace UML_Diagramme_Creation
         }
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
+            base.OnPaint(e);
             Graphics g = e.Graphics;
 
             foreach (var umlClass in Classes)
@@ -274,6 +277,98 @@ namespace UML_Diagramme_Creation
 
                 }
             }
+
+       
+
+            // Dessiner les relations
+            foreach (var relation in Relations)
+            {
+                // Get the source and target classes
+                var sourceClass = relation.Source;
+                var targetClass = relation.Target;
+
+                // Calculate the source and target points on the borders
+                Point sourceCenter = new Point(sourceClass.Position.X + sourceClass.Position.Width / 2, sourceClass.Position.Y + sourceClass.Position.Height / 2);
+                Point targetCenter = new Point(targetClass.Position.X + targetClass.Position.Width / 2, targetClass.Position.Y + targetClass.Position.Height / 2);
+
+                Point sourceBorderPoint = GetBorderPoint(sourceClass.Position, targetCenter);
+                Point targetBorderPoint = GetBorderPoint(targetClass.Position, sourceCenter);
+                // Dessiner une ligne ou une flèche entre les classes
+                Pen pen;
+                if (relation.Type == "Association")
+                {
+                    pen = Pens.Black;
+                }
+                else if (relation.Type == "Aggregation")
+                {
+                    pen = Pens.Blue;
+                }
+                else if (relation.Type == "Composition")
+                {
+                    pen = Pens.Green;
+                }
+                else if (relation.Type == "Inheritance")
+                {
+                    pen = Pens.Red;
+                }
+                else
+                {
+                    pen = Pens.Black; // Default
+                }
+
+                // Draw line representing the relation
+                g.DrawLine(pen, sourceBorderPoint, targetBorderPoint);
+
+
+
+            }
+        }
+
+        private void brnAddRelation_Click(object sender, EventArgs e)
+        {
+            using (var relationForm = new RelationForm(Classes)) // Passez la liste des classes existantes
+            {
+                if (relationForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Récupérer les informations de la fenêtre popup
+                    Class source = relationForm.SelectedSource;
+                    Class target = relationForm.SelectedTarget;
+                    string type = relationForm.SelectedType;
+
+                    // Ajouter la relation
+                    Relations.Add(new Relation(source, target, type));
+
+                    // Redessiner le diagramme
+                    Invalidate();
+                }
+            }
+        }
+        private Point GetBorderPoint(Rectangle rect, Point from)
+        {
+            float dx = from.X - (rect.X + rect.Width / 2);
+            float dy = from.Y - (rect.Y + rect.Height / 2);
+            float slope = dy / dx;
+
+            Point borderPoint = new Point();
+
+            if (Math.Abs(dx) > Math.Abs(dy))
+            {
+                // Intersection with left or right border
+                if (dx > 0)
+                    borderPoint = new Point(rect.Right, (int)(rect.Y + rect.Height / 2 + slope * (rect.Width / 2)));
+                else
+                    borderPoint = new Point(rect.Left, (int)(rect.Y + rect.Height / 2 - slope * (rect.Width / 2)));
+            }
+            else
+            {
+                // Intersection with top or bottom border
+                if (dy > 0)
+                    borderPoint = new Point((int)(rect.X + rect.Width / 2 + (rect.Height / 2) / slope), rect.Bottom);
+                else
+                    borderPoint = new Point((int)(rect.X + rect.Width / 2 - (rect.Height / 2) / slope), rect.Top);
+            }
+
+            return borderPoint;
         }
     }
 }
