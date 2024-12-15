@@ -88,20 +88,20 @@
             this.guna2ContextMenuStrip2.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip2.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip2.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip2.Size = new System.Drawing.Size(114, 36);
+            this.guna2ContextMenuStrip2.Size = new System.Drawing.Size(94, 26);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem1});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(113, 32);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.testToolStripMenuItem.Text = "test";
             // 
             // testToolStripMenuItem1
             // 
             this.testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            this.testToolStripMenuItem1.Size = new System.Drawing.Size(143, 34);
+            this.testToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
             this.testToolStripMenuItem1.Text = "test";
             // 
             // guna2ContextMenuStrip3
@@ -119,12 +119,12 @@
             this.guna2ContextMenuStrip3.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip3.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip3.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip3.Size = new System.Drawing.Size(114, 36);
+            this.guna2ContextMenuStrip3.Size = new System.Drawing.Size(94, 26);
             // 
             // testToolStripMenuItem2
             // 
             this.testToolStripMenuItem2.Name = "testToolStripMenuItem2";
-            this.testToolStripMenuItem2.Size = new System.Drawing.Size(113, 32);
+            this.testToolStripMenuItem2.Size = new System.Drawing.Size(93, 22);
             this.testToolStripMenuItem2.Text = "test";
             // 
             // guna2ContextMenuStrip4
@@ -144,24 +144,24 @@
             this.guna2ContextMenuStrip4.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip4.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip4.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip4.Size = new System.Drawing.Size(124, 100);
+            this.guna2ContextMenuStrip4.Size = new System.Drawing.Size(100, 70);
             // 
             // testToolStripMenuItem3
             // 
             this.testToolStripMenuItem3.Name = "testToolStripMenuItem3";
-            this.testToolStripMenuItem3.Size = new System.Drawing.Size(123, 32);
+            this.testToolStripMenuItem3.Size = new System.Drawing.Size(99, 22);
             this.testToolStripMenuItem3.Text = "test";
             // 
             // test1ToolStripMenuItem
             // 
             this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
-            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(123, 32);
+            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.test1ToolStripMenuItem.Text = "test1";
             // 
             // test3ToolStripMenuItem
             // 
             this.test3ToolStripMenuItem.Name = "test3ToolStripMenuItem";
-            this.test3ToolStripMenuItem.Size = new System.Drawing.Size(123, 32);
+            this.test3ToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.test3ToolStripMenuItem.Text = "test3";
             // 
             // panel1
@@ -171,8 +171,9 @@
             this.panel1.Controls.Add(this.Classbtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1324, 72);
+            this.panel1.Size = new System.Drawing.Size(883, 47);
             this.panel1.TabIndex = 4;
             // 
             // Exitbtn
@@ -186,10 +187,11 @@
             this.Exitbtn.FillColor = System.Drawing.Color.Red;
             this.Exitbtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exitbtn.ForeColor = System.Drawing.Color.White;
-            this.Exitbtn.Location = new System.Drawing.Point(1243, 0);
+            this.Exitbtn.Location = new System.Drawing.Point(829, 0);
+            this.Exitbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.Exitbtn.Size = new System.Drawing.Size(78, 69);
+            this.Exitbtn.Size = new System.Drawing.Size(52, 45);
             this.Exitbtn.TabIndex = 5;
             this.Exitbtn.Text = "X";
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
@@ -198,7 +200,7 @@
             // 
             this.Classbtn.AutoRoundedCorners = true;
             this.Classbtn.BorderColor = System.Drawing.Color.Transparent;
-            this.Classbtn.BorderRadius = 38;
+            this.Classbtn.BorderRadius = 24;
             this.Classbtn.CustomizableEdges.TopLeft = false;
             this.Classbtn.CustomizableEdges.TopRight = false;
             this.Classbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -209,9 +211,10 @@
             this.Classbtn.Font = new System.Drawing.Font("Traditional Arabic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Classbtn.ForeColor = System.Drawing.Color.Black;
             this.Classbtn.ImageSize = new System.Drawing.Size(50, 20);
-            this.Classbtn.Location = new System.Drawing.Point(750, 0);
+            this.Classbtn.Location = new System.Drawing.Point(500, 0);
+            this.Classbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Classbtn.Name = "Classbtn";
-            this.Classbtn.Size = new System.Drawing.Size(377, 78);
+            this.Classbtn.Size = new System.Drawing.Size(251, 51);
             this.Classbtn.TabIndex = 5;
             this.Classbtn.Text = "Class Diagramme";
             this.Classbtn.Click += new System.EventHandler(this.Classbtn_Click);
@@ -224,10 +227,10 @@
             this.classToolbox.Controls.Add(this.guna2ImageButton4);
             this.classToolbox.Controls.Add(this.btnAddClass);
             this.classToolbox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.classToolbox.Location = new System.Drawing.Point(1178, 72);
+            this.classToolbox.Location = new System.Drawing.Point(786, 47);
             this.classToolbox.Margin = new System.Windows.Forms.Padding(1);
             this.classToolbox.Name = "classToolbox";
-            this.classToolbox.Size = new System.Drawing.Size(146, 603);
+            this.classToolbox.Size = new System.Drawing.Size(97, 392);
             this.classToolbox.TabIndex = 5;
             // 
             // brnAddRelation
@@ -238,11 +241,10 @@
             this.brnAddRelation.ImageOffset = new System.Drawing.Point(0, 0);
             this.brnAddRelation.ImageRotate = 0F;
             this.brnAddRelation.ImageSize = new System.Drawing.Size(50, 50);
-            this.brnAddRelation.Location = new System.Drawing.Point(22, 194);
-            this.brnAddRelation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.brnAddRelation.Location = new System.Drawing.Point(15, 126);
             this.brnAddRelation.Name = "brnAddRelation";
             this.brnAddRelation.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.brnAddRelation.Size = new System.Drawing.Size(111, 79);
+            this.brnAddRelation.Size = new System.Drawing.Size(74, 51);
             this.brnAddRelation.TabIndex = 11;
             this.brnAddRelation.Click += new System.EventHandler(this.brnAddRelation_Click);
             // 
@@ -254,11 +256,10 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(37, 473);
-            this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(15, 307);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(81, 46);
+            this.guna2ImageButton6.Size = new System.Drawing.Size(64, 40);
             this.guna2ImageButton6.TabIndex = 10;
             // 
             // guna2ImageButton3
@@ -269,26 +270,24 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(31, 560);
-            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(21, 364);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(102, 76);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(68, 49);
             this.guna2ImageButton3.TabIndex = 9;
             // 
             // guna2ImageButton4
             // 
             this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(90, 90);
+            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(53, 53);
             this.guna2ImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton4.Image")));
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(31, 336);
-            this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(21, 218);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.Size = new System.Drawing.Size(87, 75);
+            this.guna2ImageButton4.Size = new System.Drawing.Size(58, 57);
             this.guna2ImageButton4.TabIndex = 8;
             this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click);
             // 
@@ -301,11 +300,10 @@
             this.btnAddClass.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnAddClass.ImageRotate = 0F;
             this.btnAddClass.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnAddClass.Location = new System.Drawing.Point(37, 78);
-            this.btnAddClass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddClass.Location = new System.Drawing.Point(25, 51);
             this.btnAddClass.Name = "btnAddClass";
             this.btnAddClass.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnAddClass.Size = new System.Drawing.Size(72, 61);
+            this.btnAddClass.Size = new System.Drawing.Size(48, 40);
             this.btnAddClass.TabIndex = 7;
             this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
@@ -313,22 +311,22 @@
             // 
             this.panelHome.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHome.Location = new System.Drawing.Point(0, 72);
+            this.panelHome.Location = new System.Drawing.Point(0, 47);
+            this.panelHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1178, 603);
+            this.panelHome.Size = new System.Drawing.Size(786, 392);
             this.panelHome.TabIndex = 6;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1324, 675);
+            this.ClientSize = new System.Drawing.Size(883, 439);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.classToolbox);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

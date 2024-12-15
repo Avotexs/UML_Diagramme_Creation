@@ -319,6 +319,15 @@ namespace UML_Diagramme_Creation
                 // Draw line representing the relation
                 g.DrawLine(pen, sourceBorderPoint, targetBorderPoint);
 
+                // Dessiner les cardinalités
+                Font font = new Font("Arial", 8);
+                Brush brush = Brushes.Black;
+
+                // Position pour les cardinalités
+                Point midpoint = new Point((sourceBorderPoint.X + targetBorderPoint.X) / 2, (sourceBorderPoint.Y + targetBorderPoint.Y) / 2);
+                g.DrawString(relation.SourceCardinality, font, brush, sourceBorderPoint);
+                g.DrawString(relation.TargetCardinality, font, brush, targetBorderPoint);
+
 
 
             }
@@ -334,10 +343,11 @@ namespace UML_Diagramme_Creation
                     Class source = relationForm.SelectedSource;
                     Class target = relationForm.SelectedTarget;
                     string type = relationForm.SelectedType;
+                    string sourceCardinality = relationForm.SourceCardinality;
+                    string targetCardinality = relationForm.TargetCardinality;
 
                     // Ajouter la relation
-                    Relations.Add(new Relation(source, target, type));
-
+                    Relations.Add(new Relation(source, target, type, sourceCardinality, targetCardinality));
                     // Redessiner le diagramme
                     Invalidate();
                 }
