@@ -45,7 +45,7 @@ namespace UML_Diagramme_Creation
                 ListViewItem item = new ListViewItem(guna2TextBox3.Text);
                 item.SubItems.Add(guna2ComboBox3.SelectedItem.ToString());
                 item.SubItems.Add(guna2ComboBox4.SelectedItem.ToString());
-                string stringParametre="";
+                string stringParametre = "";
                 foreach (Parametres m in methode.Variables)
                 {
                     stringParametre += m.chaine();
@@ -56,7 +56,7 @@ namespace UML_Diagramme_Creation
                 c.Methodes.Add(new Methode(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
                 c.Methodes.Add(methode);
                 variable = new List<Parametres>();
-                methode=new Methode();
+                methode = new Methode();
             }
             else
             {
@@ -97,11 +97,11 @@ namespace UML_Diagramme_Creation
                 item.SubItems.Add(guna2ComboBox1.SelectedItem.ToString());
                 listView1.Items.Add(item);
             }
-            else 
+            else
             {
                 MessageBox.Show("Il faut ramplir tous les champs    de l'atribut !!");
             }
-            
+
 
         }
 
