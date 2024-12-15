@@ -201,125 +201,105 @@ namespace UML_Diagramme_Creation
         }
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            base.OnPaint(e);
+
             Graphics g = e.Graphics;
 
             foreach (var umlClass in Classes)
             {
+                int nameHeight;
+                int sectionHeight;
+                Rectangle nameRect;
 
-                // Calculate heights dynamically
-                int nameHeight = 30; // Fixed height for the class name section
-                int attributeHeight = Math.Max(umlClass.Attributes.Count * 20, 30); // 20px per attribute, minimum 30px
-                int methodHeight = Math.Max(umlClass.Methodes.Count * 20, 30); // 20px per method, minimum 30px
-
-                int sectionHeight = nameHeight + attributeHeight + methodHeight;
-
-                // connaitre la linge la plus long
-                int maxLengthA = 0;
-                int maxLengthM = 0;
-
-                foreach (var chaineA in umlClass.Attributes)
+                if (umlClass.Attributes.Count == 0 && umlClass.Methodes.Count == 0)
                 {
-                    if (chaineA.retournAttribut().Length > maxLengthA)
-                    {
-                        maxLengthA = chaineA.retournAttribut().Length;
-                    }
-                }
 
-                foreach (var chaineM in umlClass.Methodes)
-                {
-                    if (chaineM.retournMethod().Length > maxLengthM)
-                    {
-                        maxLengthA = chaineM.retournMethod().Length;
-                    }
-                }
-                int rep;
-                if (maxLengthA > maxLengthM) 
-                {
-                    rep = maxLengthA*7;
+                    sectionHeight = umlClass.ClassName.Length * 9;
+
+
+                    nameHeight = 30; // Fixed height for the class name section
+
+
+                    // Dessiner le nom de la classe
+                    nameRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y, sectionHeight+10, nameHeight);
+                    g.FillRectangle(Brushes.LightBlue, nameRect);
+                    g.DrawRectangle(Pens.Black, nameRect);
+
+                    g.DrawString(umlClass.ClassName, new Font("Arial", 10), Brushes.Red, nameRect);
+
                 }
                 else
                 {
-                    rep = maxLengthM*7;
+                    // Calculate heights dynamically
+                    nameHeight = 30; // Fixed height for the class name section
+                    int attributeHeight = Math.Max(umlClass.Attributes.Count * 20, 30); // 20px per attribute, minimum 30px
+                    int methodHeight = Math.Max(umlClass.Methodes.Count * 20, 30); // 20px per method, minimum 30px
+
+                    sectionHeight = nameHeight + attributeHeight + methodHeight;
+
+                    // connaitre la linge la plus long
+                    int maxLengthA = 0;
+                    int maxLengthM = 0;
+
+                    foreach (Attribut chaineA in umlClass.Attributes)
+                    {
+                        if (chaineA.retournAttribut().Length > maxLengthA)
+                        {
+                            maxLengthA = chaineA.retournAttribut().Length;
+                        }
+                    }
+
+                    foreach (Methode chaineM in umlClass.Methodes)
+                    {
+                        if (chaineM.retournMethod().Length > maxLengthM)
+                        {
+                            maxLengthA = chaineM.retournMethod().Length;
+                        }
+                    }
+                    MessageBox.Show("atribut "+maxLengthA +"  methode"+ maxLengthM);
+                    int rep=0;
+                    if (maxLengthA > maxLengthM)
+                    {
+                        rep = maxLengthA * 7;
+                    }
+                    if (maxLengthA < maxLengthM)
+                    {
+                        rep = maxLengthM * 7;
+                    }
+                    // Diviser en trois parties pour le nom, les attributs et les méthodes
+
+
+                    // Dessiner le nom de la classe
+                    nameRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y, rep, nameHeight);
+                    g.FillRectangle(Brushes.LightBlue, nameRect);
+                    g.DrawRectangle(Pens.Black, nameRect);
+                    g.DrawString(umlClass.ClassName, new Font("Arial", 10), Brushes.Black, nameRect);
+
+                    // Dessiner les attributs
+                    Rectangle attributesRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y + nameHeight, rep, attributeHeight);
+                    g.FillRectangle(Brushes.LightYellow, attributesRect);
+                    g.DrawRectangle(Pens.Black, attributesRect);
+                    int yOffset = attributesRect.Y;
+                    foreach (Attribut attribut in umlClass.Attributes)
+                    {
+                        g.DrawString(attribut.retournAttribut(), new Font("Arial", 8), Brushes.Black, attributesRect.X + 5, yOffset + 5);
+                        yOffset += 15;
+
+                    }
+
+                    // Dessiner les méthodes
+                    Rectangle methodsRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y + nameHeight + attributeHeight, rep, methodHeight);
+                    g.FillRectangle(Brushes.LightGreen, methodsRect);
+                    g.DrawRectangle(Pens.Black, methodsRect);
+                    yOffset = methodsRect.Y;
+                    foreach (Methode method in umlClass.Methodes)
+                    {
+                        g.DrawString(method.retournMethod(), new Font("Arial", 8), Brushes.Black, methodsRect.X + 5, yOffset + 5);
+                        yOffset += 15;
+
+
+
+                    }
                 }
-                // Diviser en trois parties pour le nom, les attributs et les méthodes
-
-
-                // Dessiner le nom de la classe
-                Rectangle nameRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y, rep, nameHeight);
-                g.FillRectangle(Brushes.LightBlue, nameRect);
-                g.DrawRectangle(Pens.Black, nameRect);
-                g.DrawString(umlClass.ClassName, new Font("Arial", 10), Brushes.Black, nameRect);
-
-                // Dessiner les attributs
-                Rectangle attributesRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y + nameHeight, rep, attributeHeight);
-                g.FillRectangle(Brushes.LightYellow, attributesRect);
-                g.DrawRectangle(Pens.Black, attributesRect);
-                int yOffset = attributesRect.Y;
-                foreach (Attribut attribut in umlClass.Attributes)
-                {
-                    g.DrawString(attribut.retournAttribut(), new Font("Arial", 8), Brushes.Black, attributesRect.X + 5, yOffset + 5);
-                    yOffset += 15;
-                    
-                }
-
-                // Dessiner les méthodes
-                Rectangle methodsRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y + nameHeight + attributeHeight, rep, methodHeight);
-                g.FillRectangle(Brushes.LightGreen, methodsRect);
-                g.DrawRectangle(Pens.Black, methodsRect);
-                yOffset = methodsRect.Y;
-                foreach (Methode method in umlClass.Methodes)
-                {
-                    g.DrawString(method.retournMethod(), new Font("Arial", 8), Brushes.Black, methodsRect.X + 5, yOffset + 5);
-                    yOffset += 15;
-                    
-
-
-                }
-            }
-
-       
-
-            // Dessiner les relations
-            foreach (var relation in Relations)
-            {
-                // Get the source and target classes
-                var sourceClass = relation.Source;
-                var targetClass = relation.Target;
-
-                // Calculate the source and target points on the borders
-                Point sourceCenter = new Point(sourceClass.Position.X + sourceClass.Position.Width / 2, sourceClass.Position.Y + sourceClass.Position.Height / 2);
-                Point targetCenter = new Point(targetClass.Position.X + targetClass.Position.Width / 2, targetClass.Position.Y + targetClass.Position.Height / 2);
-
-                Point sourceBorderPoint = GetBorderPoint(sourceClass.Position, targetCenter);
-                Point targetBorderPoint = GetBorderPoint(targetClass.Position, sourceCenter);
-                // Dessiner une ligne ou une flèche entre les classes
-                Pen pen;
-                if (relation.Type == "Association")
-                {
-                    pen = Pens.Black;
-                }
-                else if (relation.Type == "Aggregation")
-                {
-                    pen = Pens.Blue;
-                }
-                else if (relation.Type == "Composition")
-                {
-                    pen = Pens.Green;
-                }
-                else if (relation.Type == "Inheritance")
-                {
-                    pen = Pens.Red;
-                }
-                else
-                {
-                    pen = Pens.Black; // Default
-                }
-
-                // Draw line representing the relation
-                g.DrawLine(pen, sourceBorderPoint, targetBorderPoint);
-
-
 
             }
         }
@@ -369,6 +349,13 @@ namespace UML_Diagramme_Creation
             }
 
             return borderPoint;
+        }
+
+        private void guna2ImageButton1_Click_1(object sender, EventArgs e)
+        {
+
+            listClasses f = new listClasses(Classes);
+            f.Show();
         }
     }
 }

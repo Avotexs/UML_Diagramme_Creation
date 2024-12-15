@@ -24,11 +24,24 @@ namespace UML_Diagramme_Creation
         public string retournAttribut()
         {
             
-            if (Visibilite == "Public") { Visibilite = "+"; }
-            else if (Visibilite == "Privé"){Visibilite = "-"; }
-            else { Visibilite = "#"; }
+            if (this.Visibilite == "Public") { Visibilite = "+"; }
+             if (this.Visibilite == "Privé"){Visibilite = "-"; }
+            if ( this.Visibilite == "Protected") {  Visibilite = "#"; }
             
             return this.Visibilite+" "+this.Charater+" : "+this.Typ;
         }
+        /*public string retournAttribut()
+        {
+
+            string chaine = "";
+            if (this.Visibilite == "Public")
+            { chaine = "+ " + this.Typ + " " + this.Charater + "()  "; }
+            if (this.Visibilite == "Privé")
+            { chaine = "- " + this.Typ + " " + this.Charater + "()  "; }
+            if (this.Visibilite == "Protected")
+            { chaine = "# " + this.Typ + " " + this.Charater + "()  "; }
+
+            return chaine;
+        }*/
     }
 }
