@@ -11,12 +11,16 @@ namespace UML_Diagramme_Creation
         public Class Source { get; set; }
         public Class Target { get; set; }
         public string Type { get; set; } // Association, Aggregation, Composition, Inheritance
-
-        public Relation(Class source, Class target, string type)
+        
+        public string SourceCardinality { get; set; }
+        public string TargetCardinality { get; set; }
+        public Relation(Class source, Class target, string type, string sourceCardinality = "", string targetCardinality = "")
         {
             Source = source;
             Target = target;
             Type = type;
+            SourceCardinality = sourceCardinality;
+            TargetCardinality = targetCardinality;
         }
     }
 }
