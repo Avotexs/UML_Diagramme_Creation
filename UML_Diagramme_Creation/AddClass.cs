@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,10 +54,13 @@ namespace UML_Diagramme_Creation
                 }
                 item.SubItems.Add(stringParametre.ToString());
                 listView2.Items.Add(item);
-                c.Methodes.Add(new Methode(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
+                methode = new Methode(guna2TextBox3.Text, guna2ComboBox4.Text, guna2ComboBox3.Text);
+                methode.Variables = variable;
                 c.Methodes.Add(methode);
-                variable = new List<Parametres>();
-                methode = new Methode();
+                
+                
+                
+                
             }
             else
             {
@@ -94,12 +98,16 @@ namespace UML_Diagramme_Creation
             {
                 ListViewItem item = new ListViewItem(guna2TextBox2.Text);
                 item.SubItems.Add(guna2ComboBox2.SelectedItem.ToString());
+                
                 item.SubItems.Add(guna2ComboBox1.SelectedItem.ToString());
                 listView1.Items.Add(item);
+                c.Attributes.Add(new Attribut(guna2TextBox2.Text, guna2ComboBox1.Text, guna2ComboBox2.Text));
+
             }
             else
             {
                 MessageBox.Show("Il faut ramplir tous les champs    de l'atribut !!");
+
             }
 
 
@@ -137,10 +145,10 @@ namespace UML_Diagramme_Creation
                 c.ClassName = guna2TextBox1.Text;
                 c.Position = rect;
 
-                foreach (ListViewItem item in listView1.Items)
+               /* foreach (ListViewItem item in listView1.Items)
                 {
                     c.Attributes.Add(new Attribut(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
-                }
+                }*/
                 
 
               /*  foreach (ListViewItem itemm in listView2.Items)
@@ -206,10 +214,11 @@ namespace UML_Diagramme_Creation
                     MessageBox.Show("Veuillez remplir les chapms de parametre !");
                 }
                 else {
+
                     Parametres var = new Parametres(guna2TextBox4.Text, guna2ComboBox5.Text);
                     variable.Add(var);
-                    
-                    methode.Variables.Add(var);
+
+
                     
                     count++;
                     MessageBox.Show("variable ajouter"+count);
