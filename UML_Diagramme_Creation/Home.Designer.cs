@@ -86,6 +86,7 @@
             this.Exitbtn.Size = new System.Drawing.Size(52, 45);
             this.Exitbtn.TabIndex = 5;
             this.Exitbtn.Text = "X";
+            this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click_1);
             // 
             // Classbtn
             // 
@@ -177,6 +178,7 @@
             this.classToolbox.Name = "classToolbox";
             this.classToolbox.Size = new System.Drawing.Size(97, 520);
             this.classToolbox.TabIndex = 8;
+            this.classToolbox.Paint += new System.Windows.Forms.PaintEventHandler(this.classToolbox_Paint);
             // 
             // brnAddRelation
             // 
@@ -322,8 +324,10 @@
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.classToolbox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.guna2ContextMenuStrip4.ResumeLayout(false);
             this.classToolbox.ResumeLayout(false);

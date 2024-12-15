@@ -279,7 +279,7 @@ namespace UML_Diagramme_Creation
                     int yOffset = attributesRect.Y;
                     foreach (Attribut attribut in umlClass.Attributes)
                     {
-                        g.DrawString(attribut.retournAttribut(), new Font("Arial", 8), Brushes.Black, attributesRect.X , yOffset );
+                        g.DrawString(attribut.retournAttributSymbol(), new Font("Arial", 8), Brushes.Black, attributesRect.X , yOffset );
                         yOffset += 15;
 
                     }
@@ -292,7 +292,7 @@ namespace UML_Diagramme_Creation
                     foreach (Methode method in umlClass.Methodes)
                     {
                         //string a = method.retournMethod();
-                        g.DrawString(method.retournMethod(), new Font("Arial", 8), Brushes.Black, methodsRect.X , yOffset );
+                        g.DrawString(method.retournMethodSymbol(), new Font("Arial", 8), Brushes.Black, methodsRect.X , yOffset );
                         yOffset += 15;
 
 
@@ -419,6 +419,16 @@ namespace UML_Diagramme_Creation
                     Invalidate();
                 }
             }
+        }
+
+        private void Exitbtn_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void classToolbox_Paint(object sender, PaintEventArgs e)
+        {
+            Controls.SetChildIndex(panel1, -1);
         }
     }
 }

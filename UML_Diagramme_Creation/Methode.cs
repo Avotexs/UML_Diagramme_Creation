@@ -25,10 +25,21 @@ namespace UML_Diagramme_Creation
         }
         public string retournMethod()
         {
-            if (this.Visibilite == "Public") { Visibilite = "+"; }
+            string stringParametre = "";
+            if (this.Variables != null)
+            {
+
+                foreach (Parametres m in this.Variables)
+                {
+                    stringParametre += m.chaine();
+
+                }
+            }
+
+            /*if (this.Visibilite == "Public") { Visibilite = "+"; }
             if (this.Visibilite == "Privé") { Visibilite = "-"; }
-            if (this.Visibilite == "Protected") { Visibilite = "#"; }
-            string t = Visibilite + "   " + Typ + " " + Charater + "()";
+            if (this.Visibilite == "Protected") { Visibilite = "#"; }*/
+            string t = Visibilite + "   " + Typ + " " + Charater + "("+ stringParametre + ")";
             return t;
             //return Visibilite; 
         }
@@ -50,23 +61,35 @@ namespace UML_Diagramme_Creation
 
         public string retournMethodSymbol()
         {
+
+            string stringParametre = "";
+            if (this.Variables!=null)
+            {
+                
+                foreach (Parametres m in this.Variables)
+                {
+                    stringParametre += m.chaine();
+
+                }
+            }
             string t = "";
             if (this.Visibilite == "Public") 
             {
-                t = "+ " + Typ + " " + Charater + "()"; 
+                t = "+ " + Typ + " " + Charater + "("+ stringParametre + ")"; 
             }
             if (this.Visibilite == "Privé") 
             {
-                t = "- " + Typ + " " + Charater + "()"; ; 
+                t = "- " + Typ + " " + Charater + "("+ stringParametre + ")"; ; 
             }
             if (this.Visibilite == "Protected") 
             {
-                t = "# " + Typ + " " + Charater + "()";
+                t = "# " + Typ + " " + Charater + "("+ stringParametre + ")";
 
             }
            
             
             return t; 
         }
+        
     }
 }

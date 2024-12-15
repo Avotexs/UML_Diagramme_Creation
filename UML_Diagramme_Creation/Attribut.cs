@@ -24,13 +24,36 @@ namespace UML_Diagramme_Creation
             Charater = charater;
             Typ = typ;
         }
+
+
+
+
+        public string retournAttributSymbol()
+        {
+            string t = "a";
+            if (this.Visibilite == "Public")
+            {
+                t = "+ " + Typ + " " + Charater ;
+            }
+            if (this.Visibilite == "Privé")
+            {
+                t = "- "+ Typ + " " + Charater ; 
+            }
+            if (this.Visibilite == "Protected")
+            {
+                t = "# " + Typ + " " + Charater ;
+
+            }
+
+            return t;
+        }
         public string retournAttribut()
         {
-            
+            /*
             if (this.Visibilite == "Public") { Visibilite = "+"; }
              if (this.Visibilite == "Privé"){Visibilite = "-"; }
             if ( this.Visibilite == "Protected") {  Visibilite = "#"; }
-            
+            */
             return this.Visibilite+" "+this.Charater+" : "+this.Typ;
         }
         /*public string retournAttribut()
@@ -46,26 +69,7 @@ namespace UML_Diagramme_Creation
 
             return chaine;
         }*/
-        public string retournAttributSymbol()
-        {
-            string t = "";
-            if (this.Visibilite == "Public")
-            {
-                t = "+ " + Typ + " " + Charater + "()";
-            }
-            if (this.Visibilite == "Privé")
-            {
-                t = "- " + Typ + " " + Charater + "()"; ;
-            }
-            if (this.Visibilite == "Protected")
-            {
-                t = "# " + Typ + " " + Charater + "()";
-
-            }
-
-
-            return t;
-        }
+       
 
 
 
