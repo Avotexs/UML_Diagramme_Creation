@@ -54,7 +54,7 @@
             this.associationexitbtn.FillColor = System.Drawing.Color.Red;
             this.associationexitbtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.associationexitbtn.ForeColor = System.Drawing.Color.White;
-            this.associationexitbtn.Location = new System.Drawing.Point(769, 1);
+            this.associationexitbtn.Location = new System.Drawing.Point(866, 1);
             this.associationexitbtn.Margin = new System.Windows.Forms.Padding(2);
             this.associationexitbtn.Name = "associationexitbtn";
             this.associationexitbtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
