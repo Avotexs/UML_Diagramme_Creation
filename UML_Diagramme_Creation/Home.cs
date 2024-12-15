@@ -180,6 +180,22 @@ namespace UML_Diagramme_Creation
             Classes = updatedClasses;
             Invalidate(); // Demander un rafraîchissement pour redessiner les classes
         }
+        public int mesure(string chaine)
+        {
+            int a = 0;
+            string text = chaine;
+            using (Graphics g = this.CreateGraphics())
+            {
+                // Mesure la largeur du texte uniquement
+                Font font = new Font("Segoe UI", 10);
+                SizeF size = g.MeasureString(text, font);
+
+                // Affiche uniquement la largeur
+                //labelWidth.Text = $"Largeur : {size.Width}px";
+                a= (int)size.Width;
+            }
+            return a;
+        }   
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -193,15 +209,15 @@ namespace UML_Diagramme_Creation
 
                 if (umlClass.Attributes.Count == 0 && umlClass.Methodes.Count == 0)
                 {
-
-                    sectionHeight = umlClass.ClassName.Length * 9;
+                    
+                    sectionHeight = mesure(umlClass.ClassName);
 
 
                     nameHeight = 30; // Fixed height for the class name section
 
 
                     // Dessiner le nom de la classe
-                    nameRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y, sectionHeight + 10, nameHeight);
+                    nameRect = new Rectangle(umlClass.Position.X, umlClass.Position.Y, sectionHeight+10, nameHeight);
                     g.FillRectangle(Brushes.LightBlue, nameRect);
                     g.DrawRectangle(Pens.Black, nameRect);
 
@@ -212,8 +228,8 @@ namespace UML_Diagramme_Creation
                 {
                     // Calculate heights dynamically
                     nameHeight = 30; // Fixed height for the class name section
-                    int attributeHeight = Math.Max(umlClass.Attributes.Count * 20, 30); // 20px per attribute, minimum 30px
-                    int methodHeight = Math.Max(umlClass.Methodes.Count * 20, 30); // 20px per method, minimum 30px
+                    int attributeHeight = Math.Max(umlClass.Attributes.Count * 17, 30); // 20px per attribute, minimum 30px
+                    int methodHeight = Math.Max(umlClass.Methodes.Count * 17, 30); // 20px per method, minimum 30px
 
                     sectionHeight = nameHeight + attributeHeight + methodHeight;
 
@@ -223,28 +239,29 @@ namespace UML_Diagramme_Creation
 
                     foreach (Attribut chaineA in umlClass.Attributes)
                     {
-                        if (chaineA.retournAttribut().Length > maxLengthA)
+                        if (mesure(chaineA.retournAttribut())> maxLengthA)
                         {
-                            maxLengthA = chaineA.retournAttribut().Length;
+                            maxLengthA = mesure(chaineA.retournAttribut());
                         }
                     }
-
+                   
                     foreach (Methode chaineM in umlClass.Methodes)
                     {
-                        if (chaineM.retournMethod().Length > maxLengthM)
+                        if (mesure(chaineM.retournMethod()) > maxLengthM)
                         {
-                            maxLengthA = chaineM.retournMethod().Length;
+                            maxLengthM = mesure(chaineM.retournMethod());
+
+                            
                         }
                     }
-                    
                     int rep = 0;
                     if (maxLengthA > maxLengthM)
                     {
-                        rep = maxLengthA * 7;
+                        rep = maxLengthA;
                     }
                     if (maxLengthA < maxLengthM)
                     {
-                        rep = maxLengthM * 7;
+                        rep = maxLengthM ;
                     }
                     // Diviser en trois parties pour le nom, les attributs et les méthodes
 
@@ -262,7 +279,7 @@ namespace UML_Diagramme_Creation
                     int yOffset = attributesRect.Y;
                     foreach (Attribut attribut in umlClass.Attributes)
                     {
-                        g.DrawString(attribut.retournAttribut(), new Font("Arial", 8), Brushes.Black, attributesRect.X + 5, yOffset + 5);
+                        g.DrawString(attribut.retournAttribut(), new Font("Arial", 8), Brushes.Black, attributesRect.X , yOffset );
                         yOffset += 15;
 
                     }
@@ -274,7 +291,8 @@ namespace UML_Diagramme_Creation
                     yOffset = methodsRect.Y;
                     foreach (Methode method in umlClass.Methodes)
                     {
-                        g.DrawString(method.retournMethod(), new Font("Arial", 8), Brushes.Black, methodsRect.X + 5, yOffset + 5);
+                        //string a = method.retournMethod();
+                        g.DrawString(method.retournMethod(), new Font("Arial", 8), Brushes.Black, methodsRect.X , yOffset );
                         yOffset += 15;
 
 

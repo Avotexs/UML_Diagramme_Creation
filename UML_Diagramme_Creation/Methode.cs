@@ -45,5 +45,28 @@ namespace UML_Diagramme_Creation
             return chaine;
             //return Visibilite; 
         }*/
+
+
+
+        public string retournMethodSymbol()
+        {
+            string t = "";
+            if (this.Visibilite == "Public") 
+            {
+                t = "+ " + Typ + " " + Charater + "()"; 
+            }
+            if (this.Visibilite == "Privé") 
+            {
+                t = "- " + Typ + " " + Charater + "()"; ; 
+            }
+            if (this.Visibilite == "Protected") 
+            {
+                t = "# " + Typ + " " + Charater + "()";
+
+            }
+           
+            
+            return t; 
+        }
     }
 }
