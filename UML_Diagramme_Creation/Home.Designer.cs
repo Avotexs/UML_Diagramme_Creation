@@ -41,7 +41,7 @@
             this.testToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolbox = new System.Windows.Forms.Panel();
             this.brnAddRelation = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Codebtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -168,7 +168,7 @@
             // classToolbox
             // 
             this.classToolbox.Controls.Add(this.brnAddRelation);
-            this.classToolbox.Controls.Add(this.guna2ImageButton6);
+            this.classToolbox.Controls.Add(this.Codebtn);
             this.classToolbox.Controls.Add(this.guna2ImageButton3);
             this.classToolbox.Controls.Add(this.guna2ImageButton4);
             this.classToolbox.Controls.Add(this.btnAddClass);
@@ -195,19 +195,20 @@
             this.brnAddRelation.TabIndex = 11;
             this.brnAddRelation.Click += new System.EventHandler(this.brnAddRelation_Click);
             // 
-            // guna2ImageButton6
+            // Codebtn
             // 
-            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton6.Image")));
-            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton6.ImageRotate = 0F;
-            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(15, 307);
-            this.guna2ImageButton6.Name = "guna2ImageButton6";
-            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(64, 40);
-            this.guna2ImageButton6.TabIndex = 10;
+            this.Codebtn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Codebtn.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Codebtn.Image = ((System.Drawing.Image)(resources.GetObject("Codebtn.Image")));
+            this.Codebtn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.Codebtn.ImageRotate = 0F;
+            this.Codebtn.ImageSize = new System.Drawing.Size(50, 50);
+            this.Codebtn.Location = new System.Drawing.Point(15, 307);
+            this.Codebtn.Name = "Codebtn";
+            this.Codebtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Codebtn.Size = new System.Drawing.Size(64, 40);
+            this.Codebtn.TabIndex = 10;
+            this.Codebtn.Click += new System.EventHandler(this.Codebtn_Click);
             // 
             // guna2ImageButton3
             // 
@@ -350,7 +351,7 @@
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem2;
         private System.Windows.Forms.Panel classToolbox;
         private Guna.UI2.WinForms.Guna2ImageButton brnAddRelation;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
+        private Guna.UI2.WinForms.Guna2ImageButton Codebtn;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;

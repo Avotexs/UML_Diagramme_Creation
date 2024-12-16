@@ -8,8 +8,8 @@ namespace UML_Diagramme_Creation
 {
     public class Parametres
     {
-        private string Nom { get; set; }
-        private string Type { get; set; }
+        public string Nom { get; set; }
+        public string Type { get; set; }
 
         public Parametres( string nom,string type) 
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -429,6 +430,26 @@ namespace UML_Diagramme_Creation
         private void classToolbox_Paint(object sender, PaintEventArgs e)
         {
             Controls.SetChildIndex(panel1, -1);
+        }
+
+        private void Codebtn_Click(object sender, EventArgs e)
+        {
+            // Générer le code source
+            var codeGenerator = new CodeGenerator(Classes, Relations);
+            string generatedCode = codeGenerator.GenerateCode();
+
+            // Afficher ou sauvegarder le code
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Fichiers C# (*.cs)|*.cs",
+                Title = "Enregistrer le code généré"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                System.IO.File.WriteAllText(saveFileDialog.FileName, generatedCode);
+                MessageBox.Show("Code généré avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

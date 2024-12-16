@@ -8,10 +8,10 @@ namespace UML_Diagramme_Creation
 {
     public class Methode
     {
-        private string Visibilite {  get; set; }
-        private string Charater {  get; set; }
+        public string Visibilite {  get; set; }
+        public string Charater {  get; set; }
         public List<Parametres> Variables { get; set; } = new List<Parametres>();
-        private string Typ { get; set; }
+        public string Typ { get; set; }
         public Methode() {
             
         }
