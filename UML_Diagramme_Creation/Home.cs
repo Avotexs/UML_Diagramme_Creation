@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheArtOfDevHtmlRenderer.Adapters;
 using static Guna.UI2.Native.WinApi;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace UML_Diagramme_Creation
 {
     public partial class Home : Form
     {
+        private float zoomFactor = 1.0f;
         public List<Relation> Relations { get; set; } = new List<Relation>();
         public List<Class> Classes { get; set; }
         private Class selectedClass = null;
@@ -31,12 +34,31 @@ namespace UML_Diagramme_Creation
             panelHome.MouseDown += home_MouseDown; // Détecte le clic initial
             panelHome.MouseMove += home_MouseMove; // Gère le déplacement
             panelHome.MouseUp += home_MouseUp; // Arrête le déplacement
+
+            panelHome.MouseWheel += PanelHome_MouseWheel;
+            panelHome.Focus();
         }
 
         // Dessiner tous les éléments dans la zone de dessin
         private void Redraw()
         {
             panelHome.Invalidate();  // Redessine le formulaire
+        }
+
+        private void PanelHome_MouseWheel(object sender, MouseEventArgs e)
+        {
+            // Zoom in if the wheel is scrolled up, zoom out if scrolled down
+            if (e.Delta > 0)
+            {
+                zoomFactor += 0.1f; // Increase zoom factor
+            }
+            else if (e.Delta < 0)
+            {
+                zoomFactor = Math.Max(0.1f, zoomFactor - 0.1f); // Decrease but ensure minimum zoom of 0.1
+            }
+
+            // Redraw the panel
+            Redraw();
         }
         private void home_MouseDown(object sender, MouseEventArgs e)
         {
@@ -51,6 +73,24 @@ namespace UML_Diagramme_Creation
                     break;
                 }
             }
+
+        }
+
+        private void SavePanelAsImage(Panel panel, string filePath)
+        {
+            // Crée un bitmap de la taille du panel
+            Bitmap bitmap = new Bitmap(panel.Width, panel.Height);
+
+            // Dessine le contenu du panel sur le bitmap
+            panel.DrawToBitmap(bitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+
+            // Sauvegarde le bitmap sous forme d'image
+            bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+
+            // Libérer les ressources
+            bitmap.Dispose();
+
+            MessageBox.Show("Panel sauvegardé avec succès !");
         }
         private void home_MouseMove(object sender, MouseEventArgs e)
         {
@@ -201,6 +241,7 @@ namespace UML_Diagramme_Creation
         {
 
             Graphics g = e.Graphics;
+            g.ScaleTransform(zoomFactor, zoomFactor);
 
             foreach (var umlClass in Classes)
             {
@@ -449,6 +490,50 @@ namespace UML_Diagramme_Creation
             {
                 System.IO.File.WriteAllText(saveFileDialog.FileName, generatedCode);
                 MessageBox.Show("Code généré avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+        private void SaveScrollablePanelAsImage(Panel panel, string filePath)
+        {
+            // Taille totale (prend en compte le contenu scrollable)
+            int panelWidth = panel.DisplayRectangle.Width;
+            int panelHeight = panel.DisplayRectangle.Height;
+
+            // Crée un bitmap de la taille totale du contenu
+            Bitmap bitmap = new Bitmap(panelWidth, panelHeight);
+
+            // Crée un Graphics à partir du bitmap
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Dessine tout le contenu, y compris les parties non visibles
+                g.CopyFromScreen(panel.PointToScreen(Point.Empty), Point.Empty, new Size(panelWidth, panelHeight));
+            }
+            bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg); // Sauvegarde en JPEG
+            bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Bmp);  // Sauvegarde en BMP
+            bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Gif);  // Sauvegarde en GIF
+            // Sauvegarde le bitmap sous forme d'image
+            bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+
+            bitmap.Dispose();
+            MessageBox.Show("Panel sauvegardé avec succès !");
+
+        }
+
+
+
+        private void Downloadbtn_Click(object sender, EventArgs e)
+        {
+            // Demande à l'utilisateur où sauvegarder l'image
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Fichiers PNG|*.png|Fichiers JPEG|*.jpg|Tous les fichiers|*.*";
+                saveFileDialog.Title = "Sauvegarder le panel en tant qu'image";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Appelle la fonction pour sauvegarder le panel
+                    SavePanelAsImage(panelHome, saveFileDialog.FileName);
+                }
             }
         }
     }

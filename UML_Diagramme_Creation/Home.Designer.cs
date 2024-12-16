@@ -42,7 +42,7 @@
             this.classToolbox = new System.Windows.Forms.Panel();
             this.brnAddRelation = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Codebtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Downloadbtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ContextMenuStrip3 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
@@ -169,7 +169,7 @@
             // 
             this.classToolbox.Controls.Add(this.brnAddRelation);
             this.classToolbox.Controls.Add(this.Codebtn);
-            this.classToolbox.Controls.Add(this.guna2ImageButton3);
+            this.classToolbox.Controls.Add(this.Downloadbtn);
             this.classToolbox.Controls.Add(this.guna2ImageButton4);
             this.classToolbox.Controls.Add(this.btnAddClass);
             this.classToolbox.Dock = System.Windows.Forms.DockStyle.Right;
@@ -210,19 +210,20 @@
             this.Codebtn.TabIndex = 10;
             this.Codebtn.Click += new System.EventHandler(this.Codebtn_Click);
             // 
-            // guna2ImageButton3
+            // Downloadbtn
             // 
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton3.Image")));
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(21, 364);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(68, 49);
-            this.guna2ImageButton3.TabIndex = 9;
+            this.Downloadbtn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Downloadbtn.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Downloadbtn.Image = ((System.Drawing.Image)(resources.GetObject("Downloadbtn.Image")));
+            this.Downloadbtn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.Downloadbtn.ImageRotate = 0F;
+            this.Downloadbtn.ImageSize = new System.Drawing.Size(50, 50);
+            this.Downloadbtn.Location = new System.Drawing.Point(15, 373);
+            this.Downloadbtn.Name = "Downloadbtn";
+            this.Downloadbtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Downloadbtn.Size = new System.Drawing.Size(68, 49);
+            this.Downloadbtn.TabIndex = 9;
+            this.Downloadbtn.Click += new System.EventHandler(this.Downloadbtn_Click);
             // 
             // guna2ImageButton4
             // 
@@ -352,7 +353,7 @@
         private System.Windows.Forms.Panel classToolbox;
         private Guna.UI2.WinForms.Guna2ImageButton brnAddRelation;
         private Guna.UI2.WinForms.Guna2ImageButton Codebtn;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Guna.UI2.WinForms.Guna2ImageButton Downloadbtn;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton btnAddClass;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip3;
