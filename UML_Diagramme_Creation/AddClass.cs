@@ -23,6 +23,7 @@ namespace UML_Diagramme_Creation
         //public List<Methode> methodes=new List<Methode>();
         public Methode methode=new Methode();
         List<Parametres> variable= new List<Parametres>();
+        Parametres var;
         int count ;
         public AddClass(List<Class> classe)
         {
@@ -50,6 +51,7 @@ namespace UML_Diagramme_Creation
                 foreach (Parametres m in methode.Variables)
                 {
                     stringParametre += m.chaine();
+                    //MessageBox.Show(m.chaine());
 
                 }
                 item.SubItems.Add(stringParametre.ToString());
@@ -215,7 +217,7 @@ namespace UML_Diagramme_Creation
                 }
                 else {
 
-                    Parametres var = new Parametres(guna2TextBox4.Text, guna2ComboBox5.Text);
+                    var = new Parametres(guna2TextBox4.Text, guna2ComboBox5.Text);
                     variable.Add(var);
 
 
