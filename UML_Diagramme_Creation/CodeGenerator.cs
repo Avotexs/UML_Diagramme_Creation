@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls.WebParts;
 
 namespace UML_Diagramme_Creation
 {
@@ -27,14 +28,34 @@ namespace UML_Diagramme_Creation
                 // Déclaration de la classe
                 code.AppendLine($"public class {umlClass.ClassName}");
                 code.AppendLine("{");
-
+                string entreConst="";
                 // Générer les attributs
                 foreach (var attribute in umlClass.Attributes)
                 {
                     string visibility = attribute.Visibilite; 
                     code.AppendLine($"    {visibility} {attribute.Typ} {attribute.Charater} {{ get; set; }}");
+                   
+
+                  
+
+                }
+                
+                string para = "";
+                foreach (var clss in Classes)
+                {
+                    para = string.Join(", ", clss.Attributes.Select(p => $"{p.Typ} {p.Charater}"));
                 }
 
+                code.AppendLine($"Public {umlClass.ClassName} ({para})");
+                code.AppendLine("{");
+
+                foreach (var attribute in umlClass.Attributes)
+                {
+                    code.AppendLine("this."+attribute.Charater+"="+ attribute.Charater);
+                }
+                code.AppendLine("}");
+
+                
                 code.AppendLine();
 
                 // Générer les méthodes
@@ -45,6 +66,12 @@ namespace UML_Diagramme_Creation
                     code.AppendLine($"    {visibility} {method.Typ} {method.Charater}({parameters})");
                     code.AppendLine("    {");
                     code.AppendLine("        // TODO: Ajouter la logique de la méthode");
+                    if(method.Typ!= "Void")
+                    {
+
+                        code.AppendLine($"         {method.Typ} =a;");
+                        code.AppendLine($"         return  a;");
+                    }
                     code.AppendLine("    }");
                     code.AppendLine();
                 }
