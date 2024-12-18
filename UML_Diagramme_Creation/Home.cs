@@ -536,6 +536,14 @@ namespace UML_Diagramme_Creation
                 }
             }
         }
+
+        private void guna2ImageButton4_Click_1(object sender, EventArgs e)
+        {
+            listClasses formListe = new listClasses(Classes);
+            formListe.Owner = this;
+            formListe.ShowDialog();
+
+        }
     }
 }
 

@@ -14,9 +14,11 @@ namespace UML_Diagramme_Creation
         [STAThread]
         static void Main()
         {
+           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Home());
+            
         }
     }
 }

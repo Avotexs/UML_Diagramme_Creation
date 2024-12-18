@@ -72,16 +72,18 @@ namespace UML_Diagramme_Creation
 
                 }
             }
+            
             string t = "";
-            if (this.Visibilite == "Public") 
+            if (this.Visibilite == "public") 
             {
                 t = "+ " + Typ + " " + Charater + "("+ stringParametre + ")"; 
             }
-            if (this.Visibilite == "Privé") 
+            
+            if (this.Visibilite == "private") 
             {
                 t = "- " + Typ + " " + Charater + "("+ stringParametre + ")"; ; 
             }
-            if (this.Visibilite == "Protected") 
+            if (this.Visibilite == "protected") 
             {
                 t = "# " + Typ + " " + Charater + "("+ stringParametre + ")";
 

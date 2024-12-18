@@ -11,7 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace UML_Diagramme_Creation
 {
-
+   
     public class Attribut
     {
         public string Visibilite { get; set; }
@@ -31,16 +31,16 @@ namespace UML_Diagramme_Creation
 
         public string retournAttributSymbol()
         {
-            string t = "a";
-            if (this.Visibilite == "Public")
+            string t = "";
+            if (this.Visibilite == "public")
             {
                 t = "+ " + Typ + " " + Charater ;
             }
-            if (this.Visibilite == "Privé")
+            if (this.Visibilite == "private")
             {
                 t = "- "+ Typ + " " + Charater ; 
             }
-            if (this.Visibilite == "Protected")
+            if (this.Visibilite == "protected")
             {
                 t = "# " + Typ + " " + Charater ;
 
@@ -57,6 +57,16 @@ namespace UML_Diagramme_Creation
             */
             return this.Visibilite+" "+this.Charater+" : "+this.Typ;
         }
+
+        public string Const()
+        {
+            /*
+            if (this.Visibilite == "Public") { Visibilite = "+"; }
+             if (this.Visibilite == "Privé"){Visibilite = "-"; }
+            if ( this.Visibilite == "Protected") {  Visibilite = "#"; }
+            */
+            return this.Typ+" "+this.Charater;
+        }
         /*public string retournAttribut()
         {
 
@@ -70,7 +80,7 @@ namespace UML_Diagramme_Creation
 
             return chaine;
         }*/
-       
+
 
 
 
