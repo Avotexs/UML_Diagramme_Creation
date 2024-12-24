@@ -30,11 +30,11 @@ namespace UML_Diagramme_Creation
             InitializeComponent();
             classes=new List<Class>();
             classes = classe;
-            guna2HtmlLabel10.Visible = false;
+            label9.Visible = false;
             guna2TextBox4.Visible = false;
             guna2ComboBox5.Visible = false;
             guna2ImageButton3.Visible = false;
-            guna2HtmlLabel11.Visible = false;
+            label8.Visible = false;
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
@@ -181,11 +181,11 @@ namespace UML_Diagramme_Creation
             if (checkBox1.Checked)
             {
 
-                guna2HtmlLabel10.Visible = true;
+                label8.Visible = true;
                 guna2TextBox4.Visible = true;
                 guna2ComboBox5.Visible = true;
                 guna2ImageButton3.Visible = true;
-                guna2HtmlLabel11.Visible = true;
+                label9.Visible = true;
 
 
 
@@ -194,11 +194,11 @@ namespace UML_Diagramme_Creation
             {
                
 
-                guna2HtmlLabel10.Visible = false;
+                label9.Visible = false;
                 guna2TextBox4.Visible = false;
                 guna2ComboBox5.Visible = false;
                 guna2ImageButton3.Visible = false;
-                guna2HtmlLabel11.Visible = false;
+                label8.Visible = false;
             }
         }
 
