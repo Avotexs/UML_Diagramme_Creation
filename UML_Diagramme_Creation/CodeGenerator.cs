@@ -25,11 +25,12 @@ namespace UML_Diagramme_Creation
             // Parcourir chaque classe et générer le code correspondant
             foreach (var umlClass in Classes)
             {
-                // Déclaration de la classe
+                // Déclaration de la classe//////////////////
                 code.AppendLine($"public class {umlClass.ClassName}");
                 code.AppendLine("{");
                 string entreConst="";
-                // Générer les attributs
+
+                // Générer les attributs///////////////////////////////
                 foreach (var attribute in umlClass.Attributes)
                 {
                     string visibility = attribute.Visibilite; 
@@ -39,7 +40,7 @@ namespace UML_Diagramme_Creation
                   
 
                 }
-                
+                /////generer le constructeur///////////////////////////////////////
                 string para = "";
                 foreach (var clss in Classes)
                 {
@@ -51,14 +52,14 @@ namespace UML_Diagramme_Creation
 
                 foreach (var attribute in umlClass.Attributes)
                 {
-                    code.AppendLine("this."+attribute.Charater+"="+ attribute.Charater);
+                    code.AppendLine("this."+attribute.Charater+"="+ attribute.Charater+";");
                 }
                 code.AppendLine("}");
 
                 
                 code.AppendLine();
 
-                // Générer les méthodes
+                /////generer les méthodes///////////////////////////////////////////////
                 foreach (var method in umlClass.Methodes)
                 {
                     string visibility = method.Visibilite; 
@@ -80,7 +81,7 @@ namespace UML_Diagramme_Creation
                 code.AppendLine();
             }
 
-            // Ajouter les relations en tant que commentaires pour documentation
+            // Ajouter les relations en tant que commentaires pour documentation/////////////
             code.AppendLine("// Relations entre les classes");
             foreach (var relation in Relations)
             {
