@@ -40,7 +40,7 @@ namespace UML_Diagramme_Creation
         }
 
         // Dessiner tous les éléments dans la zone de dessin
-        private void Redraw()
+        public void Redraw()
         {
             panelHome.Invalidate();  // Redessine le formulaire
         }
@@ -529,7 +529,8 @@ namespace UML_Diagramme_Creation
 
         private void guna2ImageButton4_Click_1(object sender, EventArgs e)
         {
-            listClasses formListe = new listClasses(Classes);
+
+            listClasses formListe = new listClasses(Classes, Relations);
             formListe.Owner = this;
             formListe.ShowDialog();
 
