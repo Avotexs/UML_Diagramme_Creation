@@ -158,12 +158,12 @@ namespace UML_Diagramme_Creation
             association.Show();
         }
 
-        private void Generatebtn_Click(object sender, EventArgs e)
+       /* private void Generatebtn_Click(object sender, EventArgs e)
         {
             Generate generate = new Generate();
             generate.Show();
         }
-
+       */
         private void Exportbtn_Click(object sender, EventArgs e)
         {
 
@@ -476,21 +476,10 @@ namespace UML_Diagramme_Creation
         private void Codebtn_Click(object sender, EventArgs e)
         {
             // Générer le code source
-            var codeGenerator = new CodeGenerator(Classes, Relations);
-            string generatedCode = codeGenerator.GenerateCode();
+            Generate f = new Generate(Classes, Relations);
+            f.Owner = this;
+            f.ShowDialog();
 
-            // Afficher ou sauvegarder le code
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Filter = "Fichiers C# (*.cs)|*.cs",
-                Title = "Enregistrer le code généré"
-            };
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                System.IO.File.WriteAllText(saveFileDialog.FileName, generatedCode);
-                MessageBox.Show("Code généré avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
         }
         private void SaveScrollablePanelAsImage(Panel panel, string filePath)

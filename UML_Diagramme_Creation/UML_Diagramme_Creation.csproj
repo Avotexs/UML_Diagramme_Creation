@@ -67,6 +67,8 @@
     <Compile Include="Attribut.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="CodeGeneratorPhp.cs" />
+    <Compile Include="CodeGeneratorPython.cs" />
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
     </Compile>
