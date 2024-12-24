@@ -27,8 +27,8 @@ namespace UML_Diagramme_Creation
         private ComboBox cbSource;
         private ComboBox cbTarget;
         private ComboBox cbType;
-        private TextBox tbSourceCardinality;
-        private TextBox tbTargetCardinality;
+        private ComboBox tbSourceCardinality;
+        private ComboBox tbTargetCardinality;
         private Button btnOk;
         private Button btnCancel;
 
@@ -68,13 +68,15 @@ namespace UML_Diagramme_Creation
             Label lblSourceCardinality = new Label { Text = "Source Cardinality", Location = new Point(10, 140) };
             Controls.Add(lblSourceCardinality);
 
-            tbSourceCardinality = new TextBox { Location = new Point(120, 140), Width = 150 };
+            tbSourceCardinality = new ComboBox { Location = new Point(120, 140), Width = 150 };
+            tbSourceCardinality.Items.AddRange(new string[] { "1", "0..1", "0..*", "1..*", "*" });
             Controls.Add(tbSourceCardinality);
 
             Label lblTargetCardinality = new Label { Text = "Target Cardinality", Location = new Point(10, 180) };
             Controls.Add(lblTargetCardinality);
 
-            tbTargetCardinality = new TextBox { Location = new Point(120, 180), Width = 150 };
+            tbTargetCardinality = new ComboBox { Location = new Point(120, 180), Width = 150 };
+            tbTargetCardinality.Items.AddRange(new string[] { "1", "0..1", "0..*", "1..*", "*" });
             Controls.Add(tbTargetCardinality);
 
             // Boutons OK et Annuler

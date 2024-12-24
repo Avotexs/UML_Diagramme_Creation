@@ -42,12 +42,12 @@ namespace UML_Diagramme_Creation
             // Ajouter une colonne de boutons Suprimer
             DataGridViewButtonColumn buttonColumnSuprimer = new DataGridViewButtonColumn();
             buttonColumnSuprimer.Name = "ButtonColumnSuprimer";
-            buttonColumnSuprimer.HeaderText = "Suprimer";
+            buttonColumnSuprimer.HeaderText = "Suprrimer";
             buttonColumnSuprimer.Text = "Click me";
             buttonColumnSuprimer.UseColumnTextForButtonValue = true;
             guna2DataGridView1.Columns.Add(buttonColumnSuprimer);
             // Charger l'image depuis un fichier
-            Image buttonImageModifierr = Image.FromFile("C:\\Users\\TAHA\\Source\\Repos\\tahasa3ada\\UML_Diagramme_Creation\\UML_Diagramme_Creation\\icons8-modifier-94.png");
+            
             int rowNumber = 0;
             foreach (Class c in Classes)
             {
@@ -56,12 +56,10 @@ namespace UML_Diagramme_Creation
 
                 // Ajouter un bouton avec une image Modifier
                 DataGridViewButtonCell buttonCellModifier = new DataGridViewButtonCell();
-                buttonCellModifier.Value = buttonImageModifierr; // Remplacez par votre image
                 row.Cells[buttonColumnModiffier.Index] = buttonCellModifier;
 
                 // Ajouter un bouton avec une image Suprimer
                 DataGridViewButtonCell buttonCellSuprimer = new DataGridViewButtonCell();
-                buttonCellSuprimer.Value = buttonImageModifierr; // Remplacez par votre image
                 row.Cells[buttonColumnSuprimer.Index] = buttonCellSuprimer;
 
 
