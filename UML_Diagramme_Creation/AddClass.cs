@@ -124,7 +124,7 @@ namespace UML_Diagramme_Creation
         {
             Home homeForm = (Home)this.Owner; // Assurez-vous que AddClass a été lancé avec ShowDialog ou Show
             homeForm.UpdateClasses(classes);
-           
+
             this.Close();
 
             if (string.IsNullOrEmpty(guna2TextBox1.Text))
@@ -140,41 +140,120 @@ namespace UML_Diagramme_Creation
                 // Convertir en coordonnées locales du formulaire
                 Point localPosition = this.PointToClient(mousePosition);
                 MouseEventArgs e2 = new MouseEventArgs(MouseButtons.Left, 1, localPosition.X, localPosition.Y, 0);
-                Rectangle rect = new Rectangle(e2.X - 50, e2.Y - 50, 120, 120);
+                Rectangle rect;
 
-                // cretion d'obet classe 
-               
+
+
+                int nameHeight;
+                int sectionHeight;
+                int sectionWidth;
                 c.ClassName = guna2TextBox1.Text;
-                c.Position = rect;
-
-               /* foreach (ListViewItem item in listView1.Items)
+                if (c.Attributes.Count == 0 && c.Methodes.Count == 0)
                 {
-                    c.Attributes.Add(new Attribut(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
-                }*/
-                
+                    sectionWidth = mesure(c.ClassName)+10;
 
-              /*  foreach (ListViewItem itemm in listView2.Items)
+
+                    nameHeight = 30; // Fixed height for the class name section
+                     rect = new Rectangle(e2.X - 50, e2.Y - 50, sectionWidth, nameHeight);
+
+                }
+                else
                 {
-                   
-                    methodes.Add(new Methode(itemm.SubItems[0].Text, itemm.SubItems[1].Text, itemm.SubItems[2].Text));
+                    // Calculate heights dynamically
+                    nameHeight = 30; // Fixed height for the class name section
+                    int attributeHeight = Math.Max(c.Attributes.Count * 17, 30); // 20px per attribute, minimum 30px
+                    int methodHeight = Math.Max(c.Methodes.Count * 17, 30); // 20px per method, minimum 30px
+
+                    sectionHeight = nameHeight + attributeHeight + methodHeight;
+
+                    // connaitre la linge la plus long
+                    int maxLengthA = 0;
+                    int maxLengthM = 0;
+
+                    foreach (Attribut chaineA in c.Attributes)
+                    {
+                        if (mesure(chaineA.retournAttribut()) > maxLengthA)
+                        {
+                            maxLengthA = mesure(chaineA.retournAttribut());
+                        }
+                    }
+
+                    foreach (Methode chaineM in c.Methodes)
+                    {
+                        if (mesure(chaineM.retournMethod()) > maxLengthM)
+                        {
+                            maxLengthM = mesure(chaineM.retournMethod());
+
+
+                        }
+                    }
+                    int rep = 0;
+                    if (maxLengthA > maxLengthM)
+                    {
+                        rep = maxLengthA;
+                    }
+                    if (maxLengthA < maxLengthM)
+                    {
+                        rep = maxLengthM;
+                    }
+
+
+                     rect = new Rectangle(e2.X - 50, e2.Y - 50,rep, sectionHeight);
+
+
+                    // modification de dimention de rectange 
+                    // cretion d'obet classe 
+
                     
-                   
-                }*/
-                //c.Methodes = methodes;
 
-         
+                    /* foreach (ListViewItem item in listView1.Items)
+                     {
+                         c.Attributes.Add(new Attribut(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text));
+                     }*/
+
+
+                    /*  foreach (ListViewItem itemm in listView2.Items)
+                      {
+
+                          methodes.Add(new Methode(itemm.SubItems[0].Text, itemm.SubItems[1].Text, itemm.SubItems[2].Text));
+
+
+                      }*/
+                    //c.Methodes = methodes;
+
+
+                    
+
+
+
+
+                }
+                
+                c.Position = rect;
                 classes.Add(c);
 
                 this.Close();
-
-
-
-
+                //hna
             }
-            
         }
         public Class retourn()
         { return c; }
+        public int mesure(string chaine)
+        {
+            int a = 0;
+            string text = chaine;
+            using (Graphics g = this.CreateGraphics())
+            {
+                // Mesure la largeur du texte uniquement
+                Font font = new Font("Segoe UI", 10);
+                SizeF size = g.MeasureString(text, font);
+
+                // Affiche uniquement la largeur
+                //labelWidth.Text = $"Largeur : {size.Width}px";
+                a = (int)size.Width;
+            }
+            return a;
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

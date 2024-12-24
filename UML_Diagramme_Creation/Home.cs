@@ -245,6 +245,7 @@ namespace UML_Diagramme_Creation
 
             foreach (var umlClass in Classes)
             {
+
                 int nameHeight;
                 int sectionHeight;
                 Rectangle nameRect;
