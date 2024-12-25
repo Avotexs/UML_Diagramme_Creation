@@ -30,7 +30,7 @@ Steps to Build and Run:
 Clone the repository:
 bash
 Copier le code
-git clone https://github.com/yourusername/uml-creator.git
+git clone https://github.com/Avotexs/UML_Diagramme_Creation
 Open the solution file (UMLCreator.sln) in Visual Studio.
 Build the solution (Ctrl+Shift+B).
 Run the application (F5).
@@ -42,8 +42,11 @@ Define the class name, attributes, and methods in the popup dialog.
 Create Associations:
 
 Use the "Add Association" button to define relationships between classes.
-Export Diagram:
 
+Generate code :
+Use the "Generate code" button to Generate a C#,PHP or Python code .
+
+Export Diagram:
 Save your diagram as an image (.png) or export the project to a reusable file format.
 Future Enhancements
 Add support for additional UML diagrams (e.g., sequence diagrams, activity diagrams).
@@ -55,14 +58,11 @@ We welcome contributions! Please follow these steps:
 Fork the repository.
 Create a new branch for your feature:
 bash
-Copier le code
 git checkout -b feature-name
 Commit your changes:
 bash
-Copier le code
 git commit -m "Add feature-name"
 Push the changes:
 bash
-Copier le code
 git push origin feature-name
 Submit a pull request.
